@@ -6,7 +6,7 @@
 /*   By: jmora-ro <jmora-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 20:32:12 by jmora-ro          #+#    #+#             */
-/*   Updated: 2025/11/08 08:56:13 by jmora-ro         ###   ########.fr       */
+/*   Updated: 2025/11/08 10:10:44 by jmora-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,38 @@ int get_min(t_stack *stack)
 		stack = stack->next;
 	}
 	return min;
+}
+
+int get_max(t_stack *stack)
+{
+	int	max;
+
+	if (!stack)
+		return (0);
+	max = stack->value;
+	stack = stack->next;
+	while (stack)
+	{
+		if (max < stack->value)
+			max = stack->value;
+		stack = stack->next;
+	}
+	return max;
+}
+
+int get_position(t_stack *stack, int value)
+{
+	int	position;
+
+	position = 0;
+	if (!stack)
+		return (-1);
+	while (stack)
+	{
+		if (stack->value == value)
+			return (position);
+		position++;
+		stack = stack->next;
+	}
+	return (-1);
 }

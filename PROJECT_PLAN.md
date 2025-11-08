@@ -91,8 +91,8 @@ typedef struct s_stack
 - [x] Create `src/stack/stack_check.c`
   - [x] `int is_sorted(t_stack *stack)`
   - [x] `int get_min(t_stack *stack)`
-  - [ ] `int get_max(t_stack *stack)`
-  - [ ] `int get_position(t_stack *stack, int value)`
+  - [x] `int get_max(t_stack *stack)`
+  - [x] `int get_position(t_stack *stack, int value)`
 
 ---
 
@@ -100,15 +100,15 @@ typedef struct s_stack
 **Goal:** Implement all allowed operations
 
 #### 3.1 Swap Operations
-- [ ] Create `src/stack/swap.c`
-  - [ ] `void sa(t_stack **a)` - swap a
-  - [ ] `void sb(t_stack **b)` - swap b
-  - [ ] `void ss(t_stack **a, t_stack **b)` - swap both
+- [x] Create `src/stack/swap.c`
+  - [x] `void sa(t_stack **a)` - swap a
+  - [x] `void sb(t_stack **b)` - swap b
+  - [x] `void ss(t_stack **a, t_stack **b)` - swap both
 
 #### 3.2 Push Operations
-- [ ] Create `src/stack/push.c`
-  - [ ] `void pa(t_stack **a, t_stack **b)` - push to a
-  - [ ] `void pb(t_stack **a, t_stack **b)` - push to b
+- [x] Create `src/stack/push.c`
+  - [x] `void pa(t_stack **a, t_stack **b)` - push to a
+  - [x] `void pb(t_stack **a, t_stack **b)` - push to b
 
 #### 3.3 Rotate Operations
 - [ ] Create `src/stack/rotate.c`
