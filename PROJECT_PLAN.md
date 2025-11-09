@@ -157,17 +157,15 @@ etc.
 ```
 
 #### 4.3 Medium Sort (4-5 elements)
-- [-] Implement `sort_five(t_stack **a, t_stack **b)`
+- [x] Implement `sort_five(t_stack **a, t_stack **b)`
   - [x] Push 2 smallest to B
   - [x] Sort remaining 3 in A
   - [x] Push back from B to A
   - [x] Target: ~12 operations or less
 
 #### 4.4 Large Sort (100+ elements)
-**Choose an algorithm:**
-
-**Option A: Chunk/Range Method** (Recommended for beginners)
-- [ ] Create `src/sort/sort_large.c`
+**Chunk/Range Method** (Recommended for beginners)
+- [x] Create `src/sort/sort_large.c`
 - [ ] Divide numbers into chunks (ranges)
 - [ ] Push chunks to B
 - [ ] Push back to A in sorted order

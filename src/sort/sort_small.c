@@ -6,7 +6,7 @@
 /*   By: jmora-ro <jmora-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 18:43:27 by jmora-ro          #+#    #+#             */
-/*   Updated: 2025/11/09 19:21:16 by jmora-ro         ###   ########.fr       */
+/*   Updated: 2025/11/09 19:44:30 by jmora-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void	push_min_to_b(t_stack **a, t_stack **b)
 	// Now min is at top, push it to B
 	pb(a, b);
 }
-
 
 void sort_five(t_stack **a, t_stack **b)
 {
