@@ -143,9 +143,9 @@ void sa(t_stack **a)
   - [x] Handle already sorted (exit)
 
 #### 4.2 Small Sorts (2-3 elements)
-- [ ] Create `src/sort/sort_small.c`
-  - [ ] `void sort_two(t_stack **a)` - 1 operation max
-  - [ ] `void sort_three(t_stack **a)` - 2-3 operations max
+- [x] Create `src/sort/sort_small.c`
+  - [x] `void sort_two(t_stack **a)` - 1 operation max
+  - [x] `void sort_three(t_stack **a)` - 2-3 operations max
 
 **Sort Three Strategy:**
 ```
@@ -157,11 +157,11 @@ etc.
 ```
 
 #### 4.3 Medium Sort (4-5 elements)
-- [ ] Implement `sort_five(t_stack **a, t_stack **b)`
-  - [ ] Push 2 smallest to B
-  - [ ] Sort remaining 3 in A
-  - [ ] Push back from B to A
-  - [ ] Target: ~12 operations or less
+- [-] Implement `sort_five(t_stack **a, t_stack **b)`
+  - [x] Push 2 smallest to B
+  - [x] Sort remaining 3 in A
+  - [x] Push back from B to A
+  - [x] Target: ~12 operations or less
 
 #### 4.4 Large Sort (100+ elements)
 **Choose an algorithm:**

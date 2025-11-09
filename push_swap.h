@@ -6,7 +6,7 @@
 /*   By: jmora-ro <jmora-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 18:12:49 by jmora-ro          #+#    #+#             */
-/*   Updated: 2025/11/09 11:10:57 by jmora-ro         ###   ########.fr       */
+/*   Updated: 2025/11/09 19:20:59 by jmora-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ t_stack	*array_to_stack(int *arr, int size);
 void	stack_add_back(t_stack **stack, t_stack *node);
 void 	free_stack(t_stack **stack);
 int		is_sorted(t_stack *stack);
+int		stack_size(t_stack *lst);
 int		get_min(t_stack *stack);
 int		get_max(t_stack *stack);
 int		get_position(t_stack *stack, int value);
@@ -59,5 +60,9 @@ void	rr(t_stack **stack_a, t_stack **stack_b);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
-
+int		stack_size(t_stack *stack);
+void	sort_two(t_stack **a);
+void	sort_three(t_stack **a);
+void	push_min_to_b(t_stack **a, t_stack **b);
+void	sort_five(t_stack **a, t_stack **b);
 #endif

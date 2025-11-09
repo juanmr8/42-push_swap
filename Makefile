@@ -13,6 +13,11 @@ SRCS        =	main.c \
 				src/utils/memory.c \
 				src/stack/stack_init.c \
 				src/stack/stack_check.c \
+				src/sort/sort_small.c \
+				src/stack/push.c \
+				src/stack/rotate.c \
+				src/stack/swap.c \
+				src/stack/reverse_rotate.c \
 
 OBJS        = $(SRCS:.c=.o)
 
