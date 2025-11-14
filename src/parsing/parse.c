@@ -3,21 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmora-ro <jmora-ro@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jmora-ro <jmora-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:44:28 by jmora-ro          #+#    #+#             */
-/*   Updated: 2025/11/09 11:10:57 by jmora-ro         ###   ########.fr       */
+/*   Updated: 2025/11/14 15:28:09 by jmora-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-
-long ft_atol(char *str)
+long	ft_atol(char *str)
 {
-	long result;
-	int sign;
-	int i;
+	long	result;
+	int		sign;
+	int		i;
 
 	result = 0;
 	sign = 1;
@@ -45,7 +44,7 @@ int	*parse_input(int argc, char **argv)
 
 	numbers = malloc(sizeof(int) * argc);
 	if (!numbers)
-		error_malloc_failed();
+		print_specific_error("Memory allocation failed");
 	i = 0;
 	while (i < argc)
 	{
@@ -53,7 +52,7 @@ int	*parse_input(int argc, char **argv)
 		if (!is_valid_range(num))
 		{
 			free(numbers);
-			error_out_of_range();
+			print_specific_error("Number out of integer range");
 		}
 		numbers[i] = num;
 		i++;

@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmora-ro <jmora-ro@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jmora-ro <jmora-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 11:27:55 by jmora-ro          #+#    #+#             */
-/*   Updated: 2025/11/11 11:05:57 by jmora-ro         ###   ########.fr       */
+/*   Updated: 2025/11/14 16:42:15 by jmora-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void free_split_args(char **args)
+static void	free_split_args(char **args)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (args[i])
@@ -22,12 +22,11 @@ static void free_split_args(char **args)
 	free(args);
 }
 
-static int *init_numbers(int argc, char **argv, int *count)
+static int	*init_numbers(int argc, char **argv, int *count)
 {
-	int *numbers;
-	char **args;
+	int		*numbers;
+	char	**args;
 
-	// Step 1: Handle single string input - split if necessary
 	args = NULL;
 	if (argc == 2)
 	{
@@ -35,55 +34,39 @@ static int *init_numbers(int argc, char **argv, int *count)
 		*count = 0;
 		while (args[*count])
 			(*count)++;
-
-		// Step 2: Validate all inputs have proper format
 		validate_input(*count, args);
-
-		// Step 3: Parse strings to integers
 		numbers = parse_input(*count, args);
-
-		// Step 4: Check for duplicates
 		check_duplicates(numbers, *count);
-
-		// Step 5: Free split array
 		free_split_args(args);
 	}
 	else
 	{
 		*count = argc - 1;
-
-		// Step 2: Validate all inputs have proper format (skip program name)
 		validate_input(*count, &argv[1]);
-
-		// Step 3: Parse strings to integers (skip program name)
 		numbers = parse_input(*count, &argv[1]);
-
-		// Step 4: Check for duplicates
 		check_duplicates(numbers, *count);
 	}
-
 	if (!numbers)
 		return (NULL);
-
 	return (numbers);
 }
 
-static t_stack *init_stack(int *numbers, int count)
+static t_stack	*init_stack(int *numbers, int count)
 {
-	t_stack *stack;
+	t_stack	*stack;
 
 	stack = array_to_stack(numbers, count);
 	if (!stack)
 	{
 		free(numbers);
-		error_malloc_failed();
+		print_specific_error("Memory allocation failed");
 	}
 	return (stack);
 }
 
 static void	push_swap(t_stack **stack_a, t_stack **stack_b)
 {
-	int size;
+	int	size;
 
 	size = stack_size(*stack_a);
 	if (size == 2)
@@ -93,26 +76,24 @@ static void	push_swap(t_stack **stack_a, t_stack **stack_b)
 	else if (size <= 5)
 		sort_five(stack_a, stack_b);
 	else
-	 	sort_large(stack_a, stack_b);
-
+		sort_large(stack_a, stack_b);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    int *numbers;
-    int count;
-	t_stack *stack_a;
-	t_stack *stack_b;
+	int		*numbers;
+	int		count;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
-    if (argc < 2)
-        return (0);
-    numbers = init_numbers(argc, argv, &count);
+	if (argc < 2)
+		return (0);
+	numbers = init_numbers(argc, argv, &count);
 	stack_a = init_stack(numbers, count);
-	stack_b = NULL;  // ADD THIS
-
-    free(numbers);
+	stack_b = NULL;
+	free(numbers);
 	push_swap(&stack_a, &stack_b);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
-    return (0);
+	return (0);
 }

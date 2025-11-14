@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmora-ro <jmora-ro@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jmora-ro <jmora-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 16:44:39 by jmora-ro          #+#    #+#             */
-/*   Updated: 2025/11/08 12:12:52 by jmora-ro         ###   ########.fr       */
+/*   Updated: 2025/11/14 15:14:10 by jmora-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-t_stack *stack_new(int value)
+t_stack	*stack_new(int value)
 {
-	t_stack *stack;
+	t_stack	*stack;
 
 	stack = malloc(sizeof (t_stack));
 	if (!stack)
@@ -38,9 +38,9 @@ int	stack_size(t_stack *lst)
 	return (size);
 }
 
-t_stack *stack_last(t_stack *stack)
+t_stack	*stack_last(t_stack *stack)
 {
-	t_stack *i;
+	t_stack	*i;
 
 	if (!stack)
 		return (NULL);
@@ -50,9 +50,9 @@ t_stack *stack_last(t_stack *stack)
 	return (i);
 }
 
-void stack_add_back(t_stack **stack, t_stack *new)
+void	stack_add_back(t_stack **stack, t_stack *new)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = *stack;
 	if (!temp)
@@ -65,11 +65,11 @@ void stack_add_back(t_stack **stack, t_stack *new)
 	temp->next = new;
 }
 
-t_stack *array_to_stack(int *arr, int size)
+t_stack	*array_to_stack(int *arr, int size)
 {
-	int	i;
+	int		i;
 	t_stack	*stack;
-	t_stack *node;
+	t_stack	*node;
 
 	stack = NULL;
 	i = 0;

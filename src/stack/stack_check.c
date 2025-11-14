@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   stack_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmora-ro <jmora-ro@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jmora-ro <jmora-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 20:32:12 by jmora-ro          #+#    #+#             */
-/*   Updated: 2025/11/09 11:32:30 by jmora-ro         ###   ########.fr       */
+/*   Updated: 2025/11/14 15:11:08 by jmora-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-int is_sorted(t_stack *stack)
+int	is_sorted(t_stack *stack)
 {
 	if (!stack || !stack->next)
-		return(1);
-	while(stack->next)
+		return (1);
+	while (stack->next)
 	{
 		if (stack->value > stack->next->value)
 			return (0);
@@ -25,9 +25,9 @@ int is_sorted(t_stack *stack)
 	return (1);
 }
 
-int get_min(t_stack *stack)
+int	get_min(t_stack *stack)
 {
-	int min;
+	int	min;
 
 	if (!stack)
 		return (0);
@@ -39,10 +39,10 @@ int get_min(t_stack *stack)
 			min = stack->value;
 		stack = stack->next;
 	}
-	return min;
+	return (min);
 }
 
-int get_max(t_stack *stack)
+int	get_max(t_stack *stack)
 {
 	int	max;
 
@@ -56,10 +56,10 @@ int get_max(t_stack *stack)
 			max = stack->value;
 		stack = stack->next;
 	}
-	return max;
+	return (max);
 }
 
-int get_position(t_stack *stack, int value)
+int	get_position(t_stack *stack, int value)
 {
 	int	position;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmora-ro <jmora-ro@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jmora-ro <jmora-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 12:23:07 by jmora-ro          #+#    #+#             */
-/*   Updated: 2025/11/09 11:03:31 by jmora-ro         ###   ########.fr       */
+/*   Updated: 2025/11/14 15:08:45 by jmora-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 static void	reverse_rotate(t_stack **stack)
 {
-	t_stack *first;
-	t_stack *last;
-	t_stack *second_last;
+	t_stack	*first;
+	t_stack	*last;
+	t_stack	*second_last;
 
 	if (!*stack || !(*stack)->next)
 		return ;
 	first = *stack;
 	second_last = NULL;
 	last = first;
-	while (last->next!= NULL)
+	while (last->next != NULL)
 	{
 		if (last->next->next == NULL)
 			second_last = last;
@@ -51,5 +51,4 @@ void	rrr(t_stack **a, t_stack **b)
 	reverse_rotate(a);
 	reverse_rotate(b);
 	write(1, "rrr\n", 4);
-
 }

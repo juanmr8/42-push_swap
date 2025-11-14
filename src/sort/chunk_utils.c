@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmora-ro <jmora-ro@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jmora-ro <jmora-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 16:24:31 by jmora-ro          #+#    #+#             */
-/*   Updated: 2025/11/11 11:32:24 by jmora-ro         ###   ########.fr       */
+/*   Updated: 2025/11/14 12:22:35 by jmora-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,18 @@ int	has_elements_in_range(t_stack *stack, int min, int max)
 	while (stack)
 	{
 		if (is_in_range(stack, min, max))
-			return (1);  // Found at least one!
+			return (1);
 		stack = stack->next;
 	}
-	return (0);  // None found
+	return (0);
 }
 
-// Si el q esta arriba de la lista esta entre los min y max del current chunk
 int	is_in_range(t_stack *stack, int min, int max)
 {
 	return (stack->index >= min && stack->index <= max);
 }
 
-// Hecho a mano - Determinar el tamaño de cada chunk
-int		calculate_chunk_count(int	stack_size)
+int	calculate_chunk_count(int stack_size)
 {
 	if (stack_size <= 100)
 		return (4);
@@ -40,13 +38,27 @@ int		calculate_chunk_count(int	stack_size)
 		return (stack_size / 50);
 }
 
-// Retornamos la distancia mas cercana al siguiente indice que este dentro de nuestro chunk
+static void	evaluate_closest(int position, int size,
+	int *closest_pos, int *min_distance)
+{
+	int	distance;
+
+	if (position <= size / 2)
+		distance = position;
+	else
+		distance = size - position;
+	if (distance < *min_distance)
+	{
+		*min_distance = distance;
+		*closest_pos = position;
+	}
+}
+
 int	find_closest_in_range(t_stack *stack, int min, int max, int size)
 {
-	int		position;
-	int		closest_pos;
-	int		min_distance;
-	int		distance;
+	int	position;
+	int	closest_pos;
+	int	min_distance;
 
 	position = 0;
 	closest_pos = -1;
@@ -54,17 +66,7 @@ int	find_closest_in_range(t_stack *stack, int min, int max, int size)
 	while (stack)
 	{
 		if (is_in_range(stack, min, max))
-		{
-			if (position <= size / 2) // Si esta en la mitad alta
-				distance = position; // Usamos el indice de la posicion como distancia
-			else // Si no, usamos el tamaño total del stack menos la posicion
-				distance = size - position;
-			if (distance < min_distance)
-			{
-				min_distance = distance;
-				closest_pos = position;
-			}
-		}
+			evaluate_closest(position, size, &closest_pos, &min_distance);
 		position++;
 		stack = stack->next;
 	}

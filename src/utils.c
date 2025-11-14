@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_pointer.c                                 :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmora-ro <jmora-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 16:48:29 by jmora-ro          #+#    #+#             */
-/*   Updated: 2025/05/14 16:14:09 by jmora-ro         ###   ########.fr       */
+/*   Created: 2025/11/06 15:04:38 by jmora-ro          #+#    #+#             */
+/*   Updated: 2025/11/14 16:32:47 by jmora-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../push_swap.h"
 
-int	ft_print_pointer(void *ptr)
+void	free_stack(t_stack **stack)
 {
-	int	count;
+	t_stack	*current;
+	t_stack	*next;
 
-	count = 0;
-	if (ptr == NULL)
+	if (!stack || !*stack)
+		return ;
+	current = *stack;
+	while (current)
 	{
-		count += ft_putstr("(nil)");
-		return (count);
+		next = current->next;
+		free(current);
+		current = next;
 	}
-	count += ft_putstr("0x");
-	count += ft_putnbr_base_unsigned((unsigned long)ptr, "0123456789abcdef", 0);
-	return (count);
+	*stack = NULL;
+}
+
+void	print_specific_error(char *error_msg)
+{
+	ft_putstr_fd("Error: ", 2);
+	ft_putstr_fd(error_msg, 2);
+	ft_putstr_fd("\n", 2);
+	exit(1);
 }

@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmora-ro <jmora-ro@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jmora-ro <jmora-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 11:03:58 by jmora-ro          #+#    #+#             */
-/*   Updated: 2025/11/11 10:51:29 by jmora-ro         ###   ########.fr       */
+/*   Updated: 2025/11/14 15:07:05 by jmora-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-// Primer paso para el algo grande. Asignamos un indice unico a cada elemento en stack A basandose en su value numerico
 void	assign_indices(t_stack **stack_a)
 {
 	t_stack	*current;
@@ -21,7 +20,6 @@ void	assign_indices(t_stack **stack_a)
 
 	if (!stack_a || !*stack_a)
 		return ;
-
 	current = *stack_a;
 	while (current)
 	{
@@ -38,8 +36,6 @@ void	assign_indices(t_stack **stack_a)
 	}
 }
 
-
-// In stack_check.c or sort_utils.c
 int	find_max_index(t_stack *stack)
 {
 	int	max;
@@ -73,4 +69,3 @@ int	should_rotate_up(int position, int stack_size)
 {
 	return (position <= stack_size / 2);
 }
-

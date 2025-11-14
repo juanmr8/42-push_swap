@@ -9,8 +9,7 @@ LIBFT       = $(LIBFT_DIR)/libft.a
 SRCS        =	main.c \
 				src/parsing/parse.c \
 				src/parsing/validate.c \
-				src/error.c \
-				src/utils/memory.c \
+				src/utils.c \
 				src/stack/stack_init.c \
 				src/stack/stack_check.c \
 				src/sort/sort_small.c \
